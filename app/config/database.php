@@ -58,16 +58,19 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 
-$db['default'] = array(
-    'hostname' => getenv('DB_HOST') ?: 'localhost',
-    'username' => getenv('DB_USER') ?: 'root',
-    'password' => getenv('DB_PASS') ?: '',
-    'database' => getenv('DB_NAME') ?: 'defaultdb',
-    'driver'   => 'mysql',
-    'port'     => getenv('DB_PORT') ?: 3306,
-    'options'  => array(
-        PDO::MYSQL_ATTR_SSL_CA => true, // Importante para sa Aiven SSL
-    )
+$database['default'] = array(
+	'hostname' => getenv('DB_HOST') ?: 'mysql-312d74be-darwingespejo02-0636.i.aivencloud.com',
+	'username' => getenv('DB_USER') ?: 'avnadmin',
+	'password' => getenv('DB_PASS'),
+	'database' => getenv('DB_NAME') ?: 'defaultdb',
+	'driver'   => 'pdo',
+	'port'     => getenv('DB_PORT') ?: 23108,
+	'charset'  => 'utf8mb4',
+	'collate'  => 'utf8mb4_unicode_ci',
+	'prefix'   => '',
+	'options'  => array(
+		PDO::MYSQL_ATTR_SSL_CA => NULL,
+		PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+	)
 );
-
 ?>
