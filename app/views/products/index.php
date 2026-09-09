@@ -7,6 +7,11 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <?php if ($message = $this->session->flashdata('success')): ?>
+            <div class="mb-4 rounded border border-green-200 bg-green-50 px-4 py-3 text-green-800"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></div>
+        <?php elseif ($message = $this->session->flashdata('error')): ?>
+            <div class="mb-4 rounded border border-red-200 bg-red-50 px-4 py-3 text-red-800"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></div>
+        <?php endif; ?>
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-gray-800">Product List</h1>
             <div>

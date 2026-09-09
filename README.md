@@ -228,6 +228,56 @@ Modern frameworks often add layers of abstraction that benefit large enterprise 
 - **Lightweight production apps** — Deploy without dragging in unused dependencies
 - **Teaching PHP development** — Clear conventions, readable source code
 
+## Laboratory Exercise No. 5
+
+This repository contains the authenticated products CRUD application for Web Systems and Technologies 2.
+
+### Application Flow
+
+1. Open `/auth/login` and sign in with a seeded user.
+2. Authenticated users are redirected to `/products`.
+3. Product pages support create, read, update, and delete operations.
+4. Unauthenticated requests to `/products`, `/products/create`, `/products/edit/{id}`, and `/products/delete/{id}` are redirected to `/auth/login`.
+
+### Aiven MySQL Setup
+
+Create an Aiven MySQL service and database, then run `database/schema.sql` against that database. The script creates the `users`, `products`, and `refresh_tokens` tables and seeds demo users.
+
+The seeded demo credentials are:
+
+| Username | Password |
+|---|---|
+| `juandelacruz` | `password` |
+| `mariasantos` | `password` |
+
+For a new installation, the product table can also be created with migration `app/migrations/004_create_products_table.php`.
+
+### Render Deployment
+
+Create a Render Web Service from this GitHub repository using the included `Dockerfile` and set these environment variables in Render:
+
+| Variable | Value |
+|---|---|
+| `APP_ENV` | `production` |
+| `APP_KEY` | Generate a secure value in Render |
+| `DB_DRIVER` | `mysql` |
+| `DB_HOST` | Aiven hostname |
+| `DB_PORT` | Aiven port |
+| `DB_USERNAME` | Aiven username |
+| `DB_PASSWORD` | Aiven password, stored only in Render |
+| `DB_NAME` | Aiven database name |
+| `DB_CHARSET` | `utf8mb4` |
+
+Do not commit the Aiven password, certificates, or other secrets. The application reads credentials from environment variables in `app/config/database.php`.
+
+### Verification Checklist
+
+- Open the Render URL while logged out and confirm `/products` redirects to `/auth/login`.
+- Log in and verify the product list loads from Aiven MySQL.
+- Add a product, edit it, and delete it; verify each change in the product list and Aiven table.
+- Capture screenshots of login, product list, add product, edit product, delete confirmation/result, and the Aiven `products` table.
+- Submit the GitHub repository URL, Render application URL, screenshots, and this working CRUD application.
+
 ---
 
 ## Documentation

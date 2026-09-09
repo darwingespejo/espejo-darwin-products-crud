@@ -13,11 +13,11 @@ services:
       - key: DB_DRIVER
         value: mysql
       - key: DB_HOST
-        value: localhost
+        sync: false
       - key: DB_PORT
         sync: false
       - key: DB_USERNAME
-        value: avnadmin
+        sync: false
       - key: DB_PASSWORD
         sync: false
       - key: DB_NAME

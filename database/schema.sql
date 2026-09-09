@@ -21,6 +21,16 @@ CREATE TABLE IF NOT EXISTS `users` (
     KEY `role_idx` (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS `products` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `product_name` VARCHAR(100) NOT NULL,
+    `description` TEXT NOT NULL,
+    `price` DECIMAL(10,2) UNSIGNED NOT NULL,
+    `quantity` INT UNSIGNED NOT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `refresh_tokens` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `user_id` INT UNSIGNED NOT NULL,
