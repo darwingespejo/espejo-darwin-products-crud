@@ -6,6 +6,7 @@ class Products extends Controller {
         parent::__construct();
         $this->call->model('Product_model');
         $this->call->library('session');
+        $this->call->library('form_validation');
 
         if (!$this->session->userdata('logged_in')) {
             redirect('auth/login');

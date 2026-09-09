@@ -6,6 +6,7 @@ class Auth extends Controller {
         parent::__construct();
         $this->call->model('User_model');
         $this->call->library('session');
+        $this->call->library('form_validation');
     }
 
     public function index() {
