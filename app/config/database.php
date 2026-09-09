@@ -58,7 +58,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 
-$database['default'] = array(
+$config = array(
 	'hostname' => getenv('DB_HOST') ?: 'mysql-312d74be-darwingespejo02-0636.i.aivencloud.com',
 	'username' => getenv('DB_USER') ?: 'avnadmin',
 	'password' => getenv('DB_PASS'),
@@ -73,4 +73,8 @@ $database['default'] = array(
 		PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
 	)
 );
+
+// Define both 'default' and 'main' keys to prevent Undefined array key error
+$database['default'] = $config;
+$database['main']    = $config;
 ?>
