@@ -1,9 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `mydb`
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE `mydb`;
-
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `firstname` VARCHAR(100) NOT NULL,
