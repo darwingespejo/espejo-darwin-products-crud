@@ -57,18 +57,17 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |   Example: $database['another_example'] = array('key' => 'value')
 */
 
-$database['main'] = array(
-    'driver'   => getenv('DB_DRIVER') ?: 'mysql',
-    'hostname'	=> getenv('DB_HOST') ?: 'localhost',
-    'port'        => getenv('DB_PORT') ?: '3306',
-    'username'   => getenv('DB_USERNAME') ?: 'root',
-    'password'	=> getenv('DB_PASSWORD') ?: '',
-    'database'	=> getenv('DB_NAME') ?: 'mydb',
-    'charset'  => getenv('DB_CHARSET') ?: 'utf8mb4',
-    'dbprefix'	=> '',
-    'ssl_ca'    => getenv('DB_SSL_CA') ?: '',
-    // Optional for SQLite
-    'path'      => ''
+
+$db['default'] = array(
+    'hostname' => getenv('DB_HOST') ?: 'localhost',
+    'username' => getenv('DB_USER') ?: 'root',
+    'password' => getenv('DB_PASS') ?: '',
+    'database' => getenv('DB_NAME') ?: 'defaultdb',
+    'driver'   => 'mysql',
+    'port'     => getenv('DB_PORT') ?: 3306,
+    'options'  => array(
+        PDO::MYSQL_ATTR_SSL_CA => true, // Importante para sa Aiven SSL
+    )
 );
 
 ?>
