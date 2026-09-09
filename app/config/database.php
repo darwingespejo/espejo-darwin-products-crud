@@ -60,10 +60,10 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $config = array(
 	'hostname' => getenv('DB_HOST') ?: 'mysql-312d74be-darwingespejo02-0636.i.aivencloud.com',
-	'username' => getenv('DB_USER') ?: 'avnadmin',
-	'password' => getenv('DB_PASS'),
-	'database' => getenv('DB_NAME') ?: 'defaultdb',
-	'driver'   => 'pdo',
+	'username' => getenv('DB_USERNAME') ?: (getenv('DB_USER') ?: 'avnadmin'),
+	'password' => getenv('DB_PASSWORD') ?: (getenv('DB_PASS') ?: ''),
+	'database' => getenv('DB_NAME') ?: (getenv('DB_DATABASE') ?: 'defaultdb'),
+	'driver'   => getenv('DB_DRIVER') ?: 'mysql',
 	'port'     => getenv('DB_PORT') ?: 23108,
 	'charset'  => 'utf8mb4',
 	'collate'  => 'utf8mb4_unicode_ci',
