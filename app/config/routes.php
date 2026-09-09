@@ -44,10 +44,10 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 /** @var object $router **/
 
-$router->get('/', 'Auth::index');
+$router->get('/', 'Products::index');
 $router->get('/users', 'UsersController::index');
 
-$route['default_controller'] = 'auth';
+$route['default_controller'] = 'products';
 
 // Auth Routes
 $route['auth/login'] = 'auth/login';
