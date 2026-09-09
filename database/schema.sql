@@ -46,25 +46,25 @@ CREATE TABLE IF NOT EXISTS `refresh_tokens` (
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Juan', 'Dela Cruz', 'juan@example.com', 'juandelacruz',
-       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC5D3a0vL6Y9Yj6Y2m9W'
+    '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'juandelacruz');
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Maria', 'Santos', 'maria@example.com', 'mariasantos',
-       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC5D3a0vL6Y9Yj6Y2m9W'
+    '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'mariasantos');
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Pedro', 'Garcia', 'pedro@example.com', 'pedrogarcia',
-       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC5D3a0vL6Y9Yj6Y2m9W'
+    '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'pedrogarcia');
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Ana', 'Reyes', 'ana@example.com', 'anareyes',
-       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC5D3a0vL6Y9Yj6Y2m9W'
+    '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'anareyes');
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Jose', 'Mendoza', 'jose@example.com', 'josemendoza',
-       '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC5D3a0vL6Y9Yj6Y2m9W'
+    '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'josemendoza');

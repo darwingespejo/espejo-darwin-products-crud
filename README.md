@@ -252,6 +252,16 @@ The seeded demo credentials are:
 
 For a new installation, the product table can also be created with migration `app/migrations/004_create_products_table.php`.
 
+If the demo users were created before the corrected seed hash was added, run this once in Navicat:
+
+```sql
+UPDATE users
+SET password = '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
+WHERE username IN ('juandelacruz', 'mariasantos', 'pedrogarcia', 'anareyes', 'josemendoza');
+```
+
+The same repair is available as migration `app/migrations/005_fix_demo_user_passwords.php`.
+
 ### Render Deployment
 
 Create a Render Web Service from this GitHub repository using the included `Dockerfile` and set these environment variables in Render:
