@@ -47,14 +47,15 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 $router->get('/', 'Products::index');
 $router->get('/users', 'UsersController::index');
 
-$route['default_controller'] = 'products';
-
 // Auth Routes
-$route['auth/login'] = 'auth/login';
-$route['auth/logout'] = 'auth/logout';
+$router->get('/auth/login', 'Auth::login');
+$router->post('/auth/login', 'Auth::login');
+$router->get('/auth/logout', 'Auth::logout');
 
 // Product CRUD Routes
-$route['products'] = 'products/index';
-$route['products/create'] = 'products/create';
-$route['products/edit/(:num)'] = 'products/edit/$1';
-$route['products/delete/(:num)'] = 'products/delete/$1';
+$router->get('/products', 'Products::index');
+$router->get('/products/create', 'Products::create');
+$router->post('/products/create', 'Products::create');
+$router->get('/products/edit/(:num)', 'Products::edit');
+$router->post('/products/edit/(:num)', 'Products::edit');
+$router->get('/products/delete/(:num)', 'Products::delete');
