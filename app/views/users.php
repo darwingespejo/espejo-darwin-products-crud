@@ -46,8 +46,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
                         <?php foreach ($users as $user): ?>
                             <tr>
                                 <td><?= html_escape($user['id']) ?></td>
-                                <td><?= html_escape($user['firstname']) ?></td>
-                                <td><?= html_escape($user['lastname']) ?></td>
+                                <td><?= html_escape($user['firstname'] ?? '-') ?></td>
+                                <td><?= html_escape($user['lastname'] ?? '-') ?></td>
                                 <td><?= html_escape($user['email']) ?></td>
                                 <td><?= html_escape($user['username']) ?></td>
                             </tr>
