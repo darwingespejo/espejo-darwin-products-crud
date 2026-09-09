@@ -249,6 +249,8 @@ The seeded demo credentials are:
 |---|---|
 | `juandelacruz` | `password` |
 | `mariasantos` | `password` |
+| `admin` | `000` |
+| `user` | `000` |
 
 For a new installation, the product table can also be created with migration `app/migrations/004_create_products_table.php`.
 
@@ -261,6 +263,8 @@ WHERE username IN ('juandelacruz', 'mariasantos', 'pedrogarcia', 'anareyes', 'jo
 ```
 
 The same repair is available as migration `app/migrations/005_fix_demo_user_passwords.php`.
+
+Migration `app/migrations/006_seed_role_accounts.php` creates or updates the `admin` and `user` accounts with their corresponding roles.
 
 ### Render Deployment
 

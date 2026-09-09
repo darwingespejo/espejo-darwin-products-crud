@@ -68,3 +68,13 @@ INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`)
 SELECT 'Jose', 'Mendoza', 'jose@example.com', 'josemendoza',
     '$2y$10$lo56nnIT.WN7oJXCdffSNuRlSv8sdO62BkfO9vQ/strU570OjTbIe'
 WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'josemendoza');
+
+INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`, `role`)
+SELECT 'System', 'Administrator', 'admin@example.com', 'admin',
+       '$2y$10$LWoO8BnTBYh1xft9fwfCG.9pm6eTVCAJ0vxB06a9dTa6RkUMHj.iK', 'admin'
+WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'admin');
+
+INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `password`, `role`)
+SELECT 'Standard', 'User', 'user@example.com', 'user',
+       '$2y$10$LWoO8BnTBYh1xft9fwfCG.9pm6eTVCAJ0vxB06a9dTa6RkUMHj.iK', 'user'
+WHERE NOT EXISTS (SELECT 1 FROM `users` WHERE `username` = 'user');

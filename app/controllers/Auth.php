@@ -31,6 +31,7 @@ class Auth extends Controller {
                 $this->session->set_userdata([
                     'user_id' => $user['id'],
                     'username' => $user['username'],
+                    'role' => $user['role'] ?? 'user',
                     'logged_in' => TRUE
                 ]);
                 redirect('products');
