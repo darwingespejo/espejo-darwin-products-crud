@@ -7,8 +7,8 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-        <?php if ($message = $this->session->flashdata('error')): ?>
-            <div class="mb-4 rounded border border-red-200 bg-red-50 px-4 py-3 text-red-800"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></div>
+        <?php if (!empty($error)): ?>
+            <div class="mb-4 rounded border border-red-200 bg-red-50 px-4 py-3 text-red-800"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
         <?php endif; ?>
         <h2 class="text-2xl font-bold mb-6 text-gray-800">Add New Product</h2>
         <form action="<?= site_url('products/create'); ?>" method="POST" class="space-y-4">

@@ -15,6 +15,8 @@ class Products extends Controller {
 
     public function index() {
         $data['products'] = $this->Product_model->get_all();
+        $data['success'] = $this->session->flashdata('success');
+        $data['error'] = $this->session->flashdata('error');
         $this->call->view('products/index', $data);
     }
 
@@ -31,7 +33,8 @@ class Products extends Controller {
             $this->session->set_flashdata('success', 'Product created successfully.');
             redirect('products');
         }
-        $this->call->view('products/create');
+        $data['error'] = $this->session->flashdata('error');
+        $this->call->view('products/create', $data);
     }
 
     public function edit($id) {
@@ -53,6 +56,7 @@ class Products extends Controller {
             $this->session->set_flashdata('success', 'Product updated successfully.');
             redirect('products');
         }
+        $data['error'] = $this->session->flashdata('error');
         $this->call->view('products/edit', $data);
     }
 

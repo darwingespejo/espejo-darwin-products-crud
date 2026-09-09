@@ -39,7 +39,8 @@ class Auth extends Controller {
                 redirect('auth/login');
             }
         }
-        $this->call->view('auth/login');
+            $data['error'] = $this->session->flashdata('error');
+            $this->call->view('auth/login', $data);
     }
 
     public function logout() {
