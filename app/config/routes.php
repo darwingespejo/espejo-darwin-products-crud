@@ -54,8 +54,10 @@ $router->get('/auth/logout', 'Auth::logout');
 
 // Product CRUD Routes
 $router->get('/products', 'Products::index');
-$router->get('/products/create', 'Products::create');
-$router->post('/products/create', 'Products::create');
-$router->get('/products/edit/{id}', 'Products::edit');
-$router->post('/products/edit/{id}', 'Products::edit');
-$router->get('/products/delete/{id}', 'Products::delete');
+$router->group(['middleware' => 'admin'], function ($router) {
+	$router->get('/products/create', 'Products::create');
+	$router->post('/products/create', 'Products::create');
+	$router->get('/products/edit/{id}', 'Products::edit');
+	$router->post('/products/edit/{id}', 'Products::edit');
+	$router->get('/products/delete/{id}', 'Products::delete');
+});

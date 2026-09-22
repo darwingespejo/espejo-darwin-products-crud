@@ -22,11 +22,6 @@ class Products extends Controller {
     }
 
     public function create() {
-        if ($this->session->userdata('role') !== 'admin') {
-            $this->session->set_flashdata('error', 'Only administrators can add products.');
-            redirect('products');
-        }
-
         if ($this->form_validation->submitted()) {
             $data = $this->product_input();
             $error = $this->validate_product($data);
@@ -44,11 +39,6 @@ class Products extends Controller {
     }
 
     public function edit($id) {
-        if ($this->session->userdata('role') !== 'admin') {
-            $this->session->set_flashdata('error', 'Only administrators can edit products.');
-            redirect('products');
-        }
-
         $data['product'] = $this->Product_model->get_by_id($id);
         if (empty($data['product'])) {
             $this->session->set_flashdata('error', 'Product not found.');
@@ -72,11 +62,6 @@ class Products extends Controller {
     }
 
     public function delete($id) {
-        if ($this->session->userdata('role') !== 'admin') {
-            $this->session->set_flashdata('error', 'Only administrators can delete products.');
-            redirect('products');
-        }
-
         if ($this->Product_model->get_by_id($id)) {
             $this->Product_model->delete($id);
             $this->session->set_flashdata('success', 'Product deleted successfully.');
