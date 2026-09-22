@@ -79,7 +79,7 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url'] = getenv('BASE_URL') ?: 'http://localhost/your-project-folder/';
+$config['base_url'] = getenv('BASE_URL') ?: 'http://localhost/LavaLust/public/';
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +99,7 @@ $config['proxy_enabled']           = FALSE;
 | variable to blank.
 |
 */
-$config['index_page']               = 'index.php';
+$config['index_page']               = '';
 
 /*
 |--------------------------------------------------------------------------
