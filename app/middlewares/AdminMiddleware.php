@@ -5,7 +5,7 @@ class AdminMiddleware
 {
     public function handle(Closure $next)
     {
-        $session = load_class('session');
+        $session = load_class('session', 'libraries');
 
         if ($session->userdata('role') !== 'admin') {
             $session->set_flashdata('error', 'Only administrators can manage products.');
