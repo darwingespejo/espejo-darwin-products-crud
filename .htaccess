@@ -23,7 +23,11 @@ AddDefaultCharset UTF-8
     Options -Indexes
 
     # --------------------------------------------------
-    # Route all requests through public/index.php
+    # Keep old index.php links working while routing through public/index.php
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^index\.php(?:/(.*))?$ public/index.php/$1 [L,QSA]
+
+    # Route all other requests through public/index.php
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ public/$1 [L,QSA]
 </IfModule>

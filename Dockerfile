@@ -1,11 +1,17 @@
 ARG PHP_VERSION=8.2
 FROM php:${PHP_VERSION}-apache
 
+# Serve the public front controller as Apache's document root.
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
 # Install PDO MySQL extension for LavaLust
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Enable Apache mod_rewrite for LavaLust routing
 RUN a2enmod rewrite
+
+# Point Apache's virtual host and directory rules at the public directory.
+RUN sed -ri "s!/var/www/html!${APACHE_DOCUMENT_ROOT}!g" /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 # Allow .htaccess overrides
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
